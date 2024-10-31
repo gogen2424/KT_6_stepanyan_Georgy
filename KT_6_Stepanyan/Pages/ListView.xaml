@@ -1,0 +1,57 @@
+﻿<Page x:Class="KT_6_Stepanyan.Pages.ListView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KT_6_Stepanyan.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListView">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="300"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label x:Name="FIOlabel" HorizontalAlignment="Left" 
+               VerticalAlignment="Center" Content=""></Label>
+        <Label x:Name="Count" HorizontalAlignment="Right"
+               VerticalAlignment="Center"></Label>
+        <Grid Grid.Row="1">
+            <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="SearchTextBox_TextChanged" Margin="10,0,0,0"></TextBox>
+            <RadioButton x:Name="SortUpradioButton" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="SortUpradioButton_Checked" Margin="200,0,0,0" Content="По Возростанию"></RadioButton>
+            <RadioButton x:Name="SortDownRadioButton" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="SortDownRadioButton_Checked" Margin="340,0,0,0" Content="По Убыванию"></RadioButton>
+            <ComboBox x:Name="ComboSup" DisplayMemberPath="Все производители" VerticalAlignment="Center" HorizontalAlignment="Right" SelectionChanged="ComboSup_SelectionChanged"></ComboBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ="150"></ColumnDefinition>
+                <ColumnDefinition ="400"></ColumnDefinition>
+                <ColumnDefinition ="150"></ColumnDefinition>
+                <ColumnDefinition ="150"></ColumnDefinition>
+                <ColumnDefinition ="150"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0">
+                <Binding Source="path">
+                    <Binding.TargetNullValue>
+                        
+                    </Binding.TargetNullValue>
+                </Binding>
+            </Image>
+            <ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel >
+                            
+                        </StackPanel>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+     
+    </Grid>
+   
+</Page>
