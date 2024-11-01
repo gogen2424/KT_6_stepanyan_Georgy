@@ -20,37 +20,47 @@
         <Label x:Name="Count" HorizontalAlignment="Right"
                VerticalAlignment="Center"></Label>
         <Grid Grid.Row="1">
-            <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="SearchTextBox_TextChanged" Margin="10,0,0,0"></TextBox>
+            <TextBox x:Name="SearchTextBox" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="SearchTextBox_TextChanged" Margin="10,0,0,0"></TextBox>
             <RadioButton x:Name="SortUpradioButton" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="SortUpradioButton_Checked" Margin="200,0,0,0" Content="По Возростанию"></RadioButton>
             <RadioButton x:Name="SortDownRadioButton" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="SortDownRadioButton_Checked" Margin="340,0,0,0" Content="По Убыванию"></RadioButton>
-            <ComboBox x:Name="ComboSup" DisplayMemberPath="Все производители" VerticalAlignment="Center" HorizontalAlignment="Right" SelectionChanged="ComboSup_SelectionChanged"></ComboBox>
+            <ComboBox x:Name="ComboSup" DisplayMemberPath="Все производители" VerticalAlignment="Center" HorizontalAlignment="Right" Width="150" SelectionChanged="ComboSup_SelectionChanged"></ComboBox>
         </Grid>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition ="150"></ColumnDefinition>
-                <ColumnDefinition ="400"></ColumnDefinition>
-                <ColumnDefinition ="150"></ColumnDefinition>
-                <ColumnDefinition ="150"></ColumnDefinition>
-                <ColumnDefinition ="150"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Image Grid.Column="0">
-                <Binding Source="path">
-                    <Binding.TargetNullValue>
-                        
-                    </Binding.TargetNullValue>
-                </Binding>
-            </Image>
-            <ListView>
+        <ListView x:Name="ListViewProducts" Grid.Row="2">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel >
-                            
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="400"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="Resources/Picture.png"  Grid.Column="0">
+                     
+                        </Image>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="{Binding ProductName.ProductName1}"></TextBlock>
+                            <TextBlock Text="{Binding Price}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding ProductDescription}"></TextBlock>
+                            <TextBlock Text="{Binding Manufacture.Manufacture1}"></TextBlock>
                         </StackPanel>
+                        <TextBlock Grid.Column="2" VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Text="{Binding ProductInStock, StringFormat={}Количество на складе:}"></TextBlock>
+                        <Button Grid.Column="3" Content="Удалить"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"></Button>
+                        
+                                   
+               
+                    </Grid>
+                  
 
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </Grid>
+     
      
     </Grid>
    

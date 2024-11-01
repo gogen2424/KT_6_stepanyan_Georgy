@@ -48,10 +48,10 @@ namespace KT_6_Stepanyan.Pages
                     try
                     {
                         
-                        var User = Data.Georgy_StepanyanEntities.GetContext().User.FirstOrDefault(d => d.Login == LoginTextBox.Text && d.Password == PasswordTextBox.Password);
+                        var User = Data.Georgy_StepanyanEntities.GetContext().User.Where(d => d.Login == LoginTextBox.Text && d.Password == PasswordTextBox.Password).FirstOrDefault();
                         MessageBox.Show("Успех!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                        switch (User.Role.ToString())
+                        switch (User.Role.Role1)
                         {
                             case "Администратор":
                                 Classes.Manager.MainFrame.Navigate(new Pages.AdminLKPage());

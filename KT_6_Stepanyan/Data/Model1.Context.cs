@@ -22,7 +22,7 @@ namespace KT_6_Stepanyan.Data
         }
         public static Georgy_StepanyanEntities GetContext()
         {
-            if (_context == null)
+            if(_context == null)
             {
                 _context = new Georgy_StepanyanEntities();
             }
